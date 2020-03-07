@@ -1,0 +1,24 @@
+name: PackageCI
+on:
+  push:
+    branches:
+      - master
+      - releases/*
+env:
+  unity_exe: 'C:\Program Files\Unity\Hub\Editor\2019.3.3f1\Editor\Unity.exe'
+
+jobs:
+  checkout:
+    runs-on: [self-hosted, windows, x64]
+    steps:        
+     - name: checkout
+       uses: actions/checkout@v2.0.0
+       with:
+         lfs: true  
+         clean: false      
+  uploadGoogleDrive:
+    runs-on: [self-hosted, windows, x64]
+    steps:
+      - name: sync uploadGoogleDrive
+        run: ./TryStartProcess.ps1 Xcopy 'toto.md F:\Data\GoogleDriveSync /E /I /H /S /Y'
+
