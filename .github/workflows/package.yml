@@ -20,5 +20,5 @@ jobs:
     runs-on: [self-hosted, windows, x64]
     steps:
       - name: sync uploadGoogleDrive
-        run: Copy-Item -Path .\game\* -Destination F:\Data\GoogleDriveSync\0.3.00011
+        run: ./Copy.ps1 .\game\* F:\Data\GoogleDriveSync\0.3.00011
 
