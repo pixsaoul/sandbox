@@ -20,5 +20,5 @@ jobs:
     runs-on: [self-hosted, windows, x64]
     steps:
       - name: sync uploadGoogleDrive
-        run: ./TryStartProcess.ps1 Xcopy 'toto.md F:\Data\GoogleDriveSync /E /I /H /S /Y'
+        run: Copy-Item -Path .\game\* -Destination F:\Data\GoogleDriveSync\0.3.00011
 
