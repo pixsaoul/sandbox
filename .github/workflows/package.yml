@@ -19,6 +19,19 @@ jobs:
   uploadGoogleDrive:
     runs-on: [self-hosted, windows, x64]
     steps:
-      - name: sync uploadGoogleDrive
-        run: Copy-Item -Path .\game\* -Destination F:\Data\GoogleDriveSync\0.3.00011
+      - name: Upload to Google Drive
+        uses: satackey/action-google-drive@v1.1.0
+        with:
+          # Content of `~/.skicka.tokencache.json` created by the `skicka` command
+          skicka-tokencache-json: test
+          # The path where the files to upload are located
+          upload-from: ./game/ # optional, default is ./
+          # The path where the files to be uploaded is located
+          upload-to: https://drive.google.com/drive/u/3/my-drive
+          # Whether to delete files that do not exist locally
+          # remove-outdated: # optional, default is true
+          # Your Google Drive API client ID
+          # google-client-id: # optional
+          # Your Google Drive API client secret
+          # google-client-secret: # optional
 
