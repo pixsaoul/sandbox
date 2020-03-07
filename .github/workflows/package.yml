@@ -6,7 +6,7 @@ on:
       - releases/*
 env:
   unity_exe: 'C:\Program Files\Unity\Hub\Editor\2019.3.3f1\Editor\Unity.exe'
-  version: '0.3.00020'
+  version: 0.3.00020
 
 jobs:
   checkout:
@@ -21,5 +21,5 @@ jobs:
     runs-on: [self-hosted, windows, x64]
     steps:
       - name: sync uploadGoogleDrive
-        run: ./Copy.ps1 .\game\* F:\\Data\GoogleDriveSync\${version}
+        run: ./Copy.ps1 .\game\* F:\\Data\GoogleDriveSync\${{version}}
 
